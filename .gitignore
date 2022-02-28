@@ -20,7 +20,19 @@
 *.rar
 
 # Folders #
+target/
+.project
+.settings/
+.classpath
 .idea/
+.metadata/
+.data/
+workspace/
+classes/
+.sonarlint/
+.recommenders/
+.sonar/
+.springBeans
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
