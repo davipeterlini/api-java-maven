@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Java Maven",
+    "description": "API com códigos em Java (11) utilizando Maven<br><table>\n  <thead>\n    <tr>\n      <th>Versão</th>\n      <th>Elaborado por</th>\n      <th>Data</th>\n      <th>Alterações</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>1.0.0</td>\n      <td>Davi Peterlini</td>\n      <td>2022-02-28</td>\n      <td>Created API Java Maven (Project)</td>\n    </tr>\n  </tbody>\n</table><br><table>\n  <thead>\n    <tr>\n      <th>Versão</th>\n      <th>Elaborado por</th>\n      <th>Data</th>\n      <th>Alterações</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>2.0.0</td>\n      <td>Davi Peterlini</td>\n      <td>2022-02-28</td>\n      <td>Code First with Swagger</td>\n    </tr>\n  </tbody>\n</table>",
+    "contact": {
+      "name": "Example - API with Java 11 and Maven",
+      "url": "https://github.com/davipeterlini/api-java-maven",
+      "email": "davipeterlini@gmail.com"
+    },
+    "version": "1;2022-02-28"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8091/api/",
+      "description": "localhost"
+    },
+    {
+      "url": "http://DNS:PORT/BASE-PATH/",
+      "description": "ENVIRONMENT"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "\"Este Controller tem como objetivo exibir uma saída de texto (hello wolrd) para teste da API "
+    },
+    {
+      "name": "hello-world-controller",
+      "description": "Hello World Controller"
+    }
+  ],
+  "paths": {
+    "/api/hello-world": {
+      "get": {
+        "tags": [
+          "hello-world-controller"
+        ],
+        "summary": "getHelloWorldInRest",
+        "operationId": "getHelloWorldInRestUsingGET",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldDTO"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-client-key": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/domains/v1/api-java-maven/api/hello-world": {
+      "get": {
+        "tags": [
+          "hello-world-controller"
+        ],
+        "summary": "getHelloWorldInRest",
+        "operationId": "getHelloWorldInRestUsingGET_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldDTO"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-client-key": [
+              "global"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HelloWorldDTO": {
+        "title": "HelloWorldDTO",
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "x-client-key": {
+        "type": "apiKey",
+        "name": "x-client-key",
+        "in": "header"
+      }
+    }
+  }
+}
